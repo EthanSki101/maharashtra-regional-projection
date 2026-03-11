@@ -1,5 +1,25 @@
 import { useState } from 'react'
-import { Activity, BookOpen, Building, Building2, CircleDollarSign, Cpu, Factory, Map, Mountain, PieChart, Shield, Ship, Sun, Sunrise, Tractor, Train, TrendingUp, Users, Zap } from 'lucide-react'
+import {
+  Activity,
+  BookOpen,
+  Building,
+  Building2,
+  CircleDollarSign,
+  Cpu,
+  Factory,
+  Map,
+  Mountain,
+  PieChart,
+  Shield,
+  Ship,
+  Sun,
+  Sunrise,
+  Tractor,
+  Train,
+  TrendingUp,
+  Users,
+  Zap,
+} from 'lucide-react'
 
 const themes = {
   konkan: { gradient: 'from-cyan-300 via-sky-200 to-blue-200', bgStart: 'from-slate-800 via-slate-700/95', bgEnd: 'to-cyan-900/35', textPrimary: 'text-cyan-300', textSecondary: 'text-sky-100', bgPrimarySubtle: 'bg-cyan-400/12', borderPrimarySubtle: 'border-cyan-200/20', borderPrimaryStrong: 'border-cyan-300/30', shadowPrimary: 'shadow-[0_0_18px_rgba(34,211,238,0.22)]', orbPrimary: 'bg-cyan-300/18', orbSecondary: 'bg-blue-200/14' },
@@ -9,15 +29,200 @@ const themes = {
 }
 
 const regionsData = {
-  konkan: { tabId: 'konkan', tabLabel: 'Konkan', theme: themes.konkan, header: { title: 'Mumbai-Konkan Arc', subtitle: '(Coastal Finance & Port Belt)', desc: 'A Maharashtra-first version of the regional dashboard focused on the state\'s coast: finance, ports, logistics, tourism, and high-density metro growth from Mumbai to the southern shore.', icon: Ship }, metrics: [{ title: 'Region Population', value: '4.3 Crore', subtext: 'Dense coastal urban corridor', icon: Users, color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' }, { title: 'Regional Economy', value: '$1.35 Trillion', subtext: 'India\'s deepest capital markets', icon: CircleDollarSign, color: 'text-sky-400', bg: 'bg-sky-500/10 border-sky-500/20' }, { title: 'Region Area', value: '32,500 sq km', subtext: 'Ports, creeks, and coastlines', icon: Map, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' }, { title: 'Avg. Density', value: '1,323 / sq km', subtext: 'Extremely metro-led concentration', icon: Activity, color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' }, { title: 'Literacy Rate', value: '93.8%', subtext: 'Services and knowledge economy', icon: BookOpen, color: 'text-sky-400', bg: 'bg-sky-500/10 border-sky-500/20' }, { title: 'Urbanization', value: '82.6%', subtext: 'Driven by Mumbai-Thane core', icon: Building, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' }], districts: [{ name: 'Mumbai City (Finance)', pop: '4.4M', area: '157', density: '28,025', edu: '96.4%', urban: '100%', growth: '3.8%', services: 82, industry: 16, agri: 2, gdp: '420' }, { name: 'Mumbai Suburban (Corporate)', pop: '15.5M', area: '446', density: '34,753', edu: '94.8%', urban: '100%', growth: '6.1%', services: 76, industry: 21, agri: 3, gdp: '335' }, { name: 'Thane (Transit/Tech)', pop: '16.1M', area: '4,214', density: '3,821', edu: '92.6%', urban: '88.4%', growth: '8.7%', services: 58, industry: 34, agri: 8, gdp: '190' }, { name: 'Raigad (Port Logistics)', pop: '4.6M', area: '7,152', density: '643', edu: '88.2%', urban: '57.2%', growth: '10.5%', services: 42, industry: 40, agri: 18, gdp: '88' }, { name: 'Palghar (Industrial Coast)', pop: '4.9M', area: '5,344', density: '917', edu: '84.9%', urban: '48.9%', growth: '11.2%', services: 33, industry: 43, agri: 24, gdp: '71' }, { name: 'Ratnagiri-Sindhudurg (Blue Economy)', pop: '2.9M', area: '14,538', density: '199', edu: '89.7%', urban: '31.4%', growth: '7.6%', services: 37, industry: 24, agri: 39, gdp: '36' }], insights: [{ title: 'The Financial Command Coast', desc: 'Mumbai and its suburban belt continue to anchor banking, capital markets, media, and advanced business services for the entire state.', icon: Building2 }, { title: 'Port-Led Industrial Expansion', desc: 'JNPA-linked logistics, coastal warehousing, and industrial parks in Raigad and Palghar turn the Konkan into a high-throughput trade interface.', icon: Train }, { title: 'Tourism + Blue Economy', desc: 'Ratnagiri and Sindhudurg combine eco-tourism, fisheries modernization, and marine processing in a diversified coastal growth model.', icon: Sun }] },
-  west: { tabId: 'west', tabLabel: 'Western MH', theme: themes.west, header: { title: 'Western Maharashtra Belt', subtitle: '(Innovation, Auto & Agro-Industry)', desc: 'The manufacturing and innovation engine centered on Pune and the sugar-industrial plains, pairing high-value engineering with resilient agro-processing networks.', icon: Factory }, metrics: [{ title: 'Region Population', value: '3.9 Crore', subtext: 'Balanced urban-industrial growth', icon: Users, color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' }, { title: 'Regional Economy', value: '$780 Billion', subtext: 'Auto, IT and precision industry', icon: CircleDollarSign, color: 'text-fuchsia-400', bg: 'bg-fuchsia-500/10 border-fuchsia-500/20' }, { title: 'Region Area', value: '58,400 sq km', subtext: 'Plateau heartland and river basins', icon: Map, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' }, { title: 'Avg. Density', value: '668 / sq km', subtext: 'Metro core with strong secondary cities', icon: Activity, color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' }, { title: 'Literacy Rate', value: '90.9%', subtext: 'High technical and managerial base', icon: BookOpen, color: 'text-fuchsia-400', bg: 'bg-fuchsia-500/10 border-fuchsia-500/20' }, { title: 'Urbanization', value: '66.3%', subtext: 'Led by Pune mega-region', icon: Building, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' }], districts: [{ name: 'Pune (Innovation Core)', pop: '10.4M', area: '15,643', density: '665', edu: '93.6%', urban: '74.1%', growth: '10.9%', services: 55, industry: 35, agri: 10, gdp: '255' }, { name: 'Pimpri-Chinchwad (Auto Cluster)', pop: '4.8M', area: '181', density: '26,519', edu: '92.7%', urban: '100%', growth: '9.8%', services: 34, industry: 63, agri: 3, gdp: '92' }, { name: 'Kolhapur (Engineering)', pop: '4.6M', area: '7,685', density: '598', edu: '88.5%', urban: '54.9%', growth: '8.1%', services: 31, industry: 46, agri: 23, gdp: '61' }, { name: 'Satara (Mobility & Energy)', pop: '3.8M', area: '10,475', density: '363', edu: '87.8%', urban: '43.5%', growth: '7.4%', services: 29, industry: 39, agri: 32, gdp: '44' }, { name: 'Sangli (Agro Processing)', pop: '3.7M', area: '8,572', density: '432', edu: '86.9%', urban: '46.2%', growth: '6.8%', services: 27, industry: 33, agri: 40, gdp: '39' }, { name: 'Solapur (Textile/Transit)', pop: '5.1M', area: '14,895', density: '342', edu: '84.7%', urban: '49.8%', growth: '7.2%', services: 30, industry: 38, agri: 32, gdp: '48' }], insights: [{ title: 'Pune as the Innovation Multiplexer', desc: 'Pune integrates software, automotive R&D, defense electronics, and startup capital into a singular growth platform for Maharashtra.', icon: Cpu }, { title: 'Manufacturing Beyond the Metro', desc: 'Kolhapur, Satara, and Pimpri-Chinchwad deepen the state\'s industrial base with precision components, EV supply chains, and engineering exports.', icon: Factory }, { title: 'Agro-Industrial Resilience', desc: 'Sangli and Solapur blend irrigation, food processing, and logistics to stabilize the broader western growth corridor.', icon: Tractor }] },
-  marathwada: { tabId: 'marathwada', tabLabel: 'Marathwada', theme: themes.marathwada, header: { title: 'Marathwada Renewal Corridor', subtitle: '(Manufacturing Catch-up & Water Resilience)', desc: 'A forward-looking Marathwada dashboard emphasizing industrial catch-up, logistics upgrades, drought resilience, and faster educational convergence.', icon: Sunrise }, metrics: [{ title: 'Region Population', value: '2.2 Crore', subtext: 'Fast-modernizing interior belt', icon: Users, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' }, { title: 'Regional Economy', value: '$235 Billion', subtext: 'Industrial diversification underway', icon: CircleDollarSign, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' }, { title: 'Region Area', value: '64,600 sq km', subtext: 'Large inland districts and trade routes', icon: Map, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' }, { title: 'Avg. Density', value: '341 / sq km', subtext: 'Lower density, higher land potential', icon: Activity, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' }, { title: 'Literacy Rate', value: '84.1%', subtext: 'Steady human-capital gains', icon: BookOpen, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' }, { title: 'Urbanization', value: '43.7%', subtext: 'Growth led by industrial nodes', icon: Building, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' }], districts: [{ name: 'Chh. Sambhajinagar (Industry)', pop: '5.1M', area: '10,107', density: '505', edu: '87.2%', urban: '56.4%', growth: '9.6%', services: 34, industry: 45, agri: 21, gdp: '63' }, { name: 'Jalna (Manufacturing)', pop: '2.7M', area: '7,718', density: '350', edu: '82.4%', urban: '34.7%', growth: '8.8%', services: 24, industry: 44, agri: 32, gdp: '24' }, { name: 'Latur (Education/Trade)', pop: '3.2M', area: '7,157', density: '447', edu: '85.7%', urban: '39.6%', growth: '8.1%', services: 29, industry: 31, agri: 40, gdp: '28' }, { name: 'Nanded (Health Corridor)', pop: '4.1M', area: '10,502', density: '390', edu: '83.6%', urban: '37.9%', growth: '7.5%', services: 31, industry: 24, agri: 45, gdp: '30' }, { name: 'Beed (Water Transition)', pop: '3.5M', area: '10,693', density: '327', edu: '79.8%', urban: '28.5%', growth: '6.9%', services: 20, industry: 23, agri: 57, gdp: '19' }, { name: 'Parbhani-Hingoli (Agri Grid)', pop: '3.0M', area: '9,300', density: '323', edu: '80.5%', urban: '26.2%', growth: '6.4%', services: 19, industry: 21, agri: 60, gdp: '17' }], insights: [{ title: 'The Industrial Catch-up Zone', desc: 'Chhatrapati Sambhajinagar and Jalna emerge as the leading production nodes for engineering goods, warehousing, and mid-scale manufacturing.', icon: Building2 }, { title: 'Water Security as Economic Policy', desc: 'Reservoir modernization, micro-irrigation, and reuse systems are treated as core growth infrastructure rather than only rural welfare inputs.', icon: Sun }, { title: 'Education-Led Convergence', desc: 'Latur and Nanded strengthen the regional talent base, allowing Marathwada to retain more skilled youth inside the state economy.', icon: BookOpen }] },
-  vidarbha: { tabId: 'vidarbha', tabLabel: 'Vidarbha', theme: themes.vidarbha, header: { title: 'Vidarbha Resource Belt', subtitle: '(Logistics, Energy & Mineral Value Chains)', desc: 'The eastern growth frontier of Maharashtra, where Nagpur\'s logistics position, Chandrapur\'s energy base, and broad agricultural hinterlands create a different growth profile from the coast and western plateau.', icon: Zap }, metrics: [{ title: 'Region Population', value: '2.9 Crore', subtext: 'Large land base with major nodes', icon: Users, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' }, { title: 'Regional Economy', value: '$320 Billion', subtext: 'Energy, logistics and processing led', icon: CircleDollarSign, color: 'text-lime-400', bg: 'bg-lime-500/10 border-lime-500/20' }, { title: 'Region Area', value: '97,700 sq km', subtext: 'State\'s broad eastern expanse', icon: Map, color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' }, { title: 'Avg. Density', value: '297 / sq km', subtext: 'Low density with high corridor potential', icon: Activity, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' }, { title: 'Literacy Rate', value: '86.3%', subtext: 'Improving technical institutions', icon: BookOpen, color: 'text-lime-400', bg: 'bg-lime-500/10 border-lime-500/20' }, { title: 'Urbanization', value: '47.1%', subtext: 'Nagpur-led urban network', icon: Building, color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' }], districts: [{ name: 'Nagpur (Logistics Capital)', pop: '6.8M', area: '9,892', density: '688', edu: '90.8%', urban: '68.9%', growth: '10.4%', services: 44, industry: 37, agri: 19, gdp: '98' }, { name: 'Amravati (Education/Trade)', pop: '4.1M', area: '12,235', density: '335', edu: '87.1%', urban: '41.3%', growth: '7.2%', services: 29, industry: 24, agri: 47, gdp: '31' }, { name: 'Chandrapur (Energy Hub)', pop: '3.5M', area: '11,443', density: '306', edu: '84.9%', urban: '38.7%', growth: '7.8%', services: 20, industry: 53, agri: 27, gdp: '39' }, { name: 'Wardha (Agri-Processing)', pop: '2.0M', area: '6,309', density: '317', edu: '86.5%', urban: '29.1%', growth: '6.4%', services: 19, industry: 26, agri: 55, gdp: '15' }, { name: 'Yavatmal (Fiber & Farm)', pop: '3.3M', area: '13,582', density: '243', edu: '82.7%', urban: '25.4%', growth: '5.9%', services: 16, industry: 18, agri: 66, gdp: '18' }, { name: 'Bhandara-Gondia (Processing Belt)', pop: '2.6M', area: '10,200', density: '255', edu: '85.6%', urban: '28.8%', growth: '6.6%', services: 18, industry: 29, agri: 53, gdp: '20' }], insights: [{ title: 'Nagpur as the Inland Pivot', desc: 'Nagpur leverages its central geography and multimodal links to function as Maharashtra\'s inland logistics and warehousing command center.', icon: Train }, { title: 'Energy and Mineral Upgrading', desc: 'Chandrapur and nearby districts are repositioned from raw extraction toward cleaner power, advanced materials, and downstream processing.', icon: Shield }, { title: 'Agro-Processing at Scale', desc: 'Vidarbha\'s land base supports cotton, food processing, storage, and farm-tech deployment, especially when linked to higher-value logistics corridors.', icon: Mountain }] },
+  konkan: {
+    tabId: 'konkan',
+    tabLabel: 'Konkan',
+    theme: themes.konkan,
+    header: {
+      title: 'Mumbai-Konkan Arc',
+      subtitle: '(Coastal Finance & Port Belt)',
+      desc: 'A Maharashtra-first version of the regional dashboard focused on the state\'s coast: finance, ports, logistics, tourism, and high-density metro growth from Mumbai to the southern shore.',
+      icon: Ship,
+    },
+    metrics: [
+      { title: 'Region Population', value: '4.3 Crore', subtext: 'Dense coastal urban corridor', icon: Users, color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
+      { title: 'Regional Economy', value: '$1.35 Trillion', subtext: 'India\'s deepest capital markets', icon: CircleDollarSign, color: 'text-sky-400', bg: 'bg-sky-500/10 border-sky-500/20' },
+      { title: 'Region Area', value: '32,500 sq km', subtext: 'Ports, creeks, and coastlines', icon: Map, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
+      { title: 'Avg. Density', value: '1,323 / sq km', subtext: 'Extremely metro-led concentration', icon: Activity, color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
+      { title: 'Literacy Rate', value: '93.8%', subtext: 'Services and knowledge economy', icon: BookOpen, color: 'text-sky-400', bg: 'bg-sky-500/10 border-sky-500/20' },
+      { title: 'Urbanization', value: '82.6%', subtext: 'Driven by Mumbai-Thane core', icon: Building, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
+    ],
+    districts: [
+      { name: 'Mumbai City (Finance)', pop: '4.4M', area: '157', density: '28,025', edu: '96.4%', urban: '100%', growth: '3.8%', gdp: '420', services: 82, industry: 16, agri: 2, hindu: 65, muslim: 25, other: 10 },
+      { name: 'Mumbai Suburban (Corporate)', pop: '15.5M', area: '446', density: '34,753', edu: '94.8%', urban: '100%', growth: '6.1%', gdp: '335', services: 76, industry: 21, agri: 3, hindu: 67, muslim: 24, other: 9 },
+      { name: 'Thane (Transit/Tech)', pop: '16.1M', area: '4,214', density: '3,821', edu: '92.6%', urban: '88.4%', growth: '8.7%', gdp: '190', services: 58, industry: 34, agri: 8, hindu: 70, muslim: 20, other: 10 },
+      { name: 'Raigad (Port Logistics)', pop: '4.6M', area: '7,152', density: '643', edu: '88.2%', urban: '57.2%', growth: '10.5%', gdp: '88', services: 42, industry: 40, agri: 18, hindu: 81, muslim: 11, other: 8 },
+      { name: 'Palghar (Industrial Coast)', pop: '4.9M', area: '5,344', density: '917', edu: '84.9%', urban: '48.9%', growth: '11.2%', gdp: '71', services: 33, industry: 43, agri: 24, hindu: 79, muslim: 9, other: 12 },
+      { name: 'Ratnagiri-Sindhudurg (Blue Economy)', pop: '2.9M', area: '14,538', density: '199', edu: '89.7%', urban: '31.4%', growth: '7.6%', gdp: '36', services: 37, industry: 24, agri: 39, hindu: 89, muslim: 6, other: 5 },
+    ],
+    insights: [
+      { title: 'The Financial Command Coast', desc: 'Mumbai and its suburban belt continue to anchor banking, capital markets, media, and advanced business services for the entire state.', icon: Building2 },
+      { title: 'Port-Led Industrial Expansion', desc: 'JNPA-linked logistics, coastal warehousing, and industrial parks in Raigad and Palghar turn the Konkan into a high-throughput trade interface.', icon: Train },
+      { title: 'Tourism + Blue Economy', desc: 'Ratnagiri and Sindhudurg combine eco-tourism, fisheries modernization, and marine processing in a diversified coastal growth model.', icon: Sun },
+    ],
+  },
+  west: {
+    tabId: 'west',
+    tabLabel: 'Western MH',
+    theme: themes.west,
+    header: {
+      title: 'Western Maharashtra Belt',
+      subtitle: '(Innovation, Auto & Agro-Industry)',
+      desc: 'The manufacturing and innovation engine centered on Pune and the sugar-industrial plains, pairing high-value engineering with resilient agro-processing networks.',
+      icon: Factory,
+    },
+    metrics: [
+      { title: 'Region Population', value: '3.9 Crore', subtext: 'Balanced urban-industrial growth', icon: Users, color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
+      { title: 'Regional Economy', value: '$780 Billion', subtext: 'Auto, IT and precision industry', icon: CircleDollarSign, color: 'text-fuchsia-400', bg: 'bg-fuchsia-500/10 border-fuchsia-500/20' },
+      { title: 'Region Area', value: '58,400 sq km', subtext: 'Plateau heartland and river basins', icon: Map, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+      { title: 'Avg. Density', value: '668 / sq km', subtext: 'Metro core with strong secondary cities', icon: Activity, color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
+      { title: 'Literacy Rate', value: '90.9%', subtext: 'High technical and managerial base', icon: BookOpen, color: 'text-fuchsia-400', bg: 'bg-fuchsia-500/10 border-fuchsia-500/20' },
+      { title: 'Urbanization', value: '66.3%', subtext: 'Led by Pune mega-region', icon: Building, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+    ],
+    districts: [
+      { name: 'Pune (Innovation Core)', pop: '10.4M', area: '15,643', density: '665', edu: '93.6%', urban: '74.1%', growth: '10.9%', gdp: '255', services: 55, industry: 35, agri: 10, hindu: 80, muslim: 11, other: 9 },
+      { name: 'Pimpri-Chinchwad (Auto Cluster)', pop: '4.8M', area: '181', density: '26,519', edu: '92.7%', urban: '100%', growth: '9.8%', gdp: '92', services: 34, industry: 63, agri: 3, hindu: 77, muslim: 15, other: 8 },
+      { name: 'Kolhapur (Engineering)', pop: '4.6M', area: '7,685', density: '598', edu: '88.5%', urban: '54.9%', growth: '8.1%', gdp: '61', services: 31, industry: 46, agri: 23, hindu: 84, muslim: 10, other: 6 },
+      { name: 'Satara (Mobility & Energy)', pop: '3.8M', area: '10,475', density: '363', edu: '87.8%', urban: '43.5%', growth: '7.4%', gdp: '44', services: 29, industry: 39, agri: 32, hindu: 87, muslim: 8, other: 5 },
+      { name: 'Sangli (Agro Processing)', pop: '3.7M', area: '8,572', density: '432', edu: '86.9%', urban: '46.2%', growth: '6.8%', gdp: '39', services: 27, industry: 33, agri: 40, hindu: 83, muslim: 11, other: 6 },
+      { name: 'Solapur (Textile/Transit)', pop: '5.1M', area: '14,895', density: '342', edu: '84.7%', urban: '49.8%', growth: '7.2%', gdp: '48', services: 30, industry: 38, agri: 32, hindu: 75, muslim: 20, other: 5 },
+    ],
+    insights: [
+      { title: 'Pune as the Innovation Multiplexer', desc: 'Pune integrates software, automotive R&D, defense electronics, and startup capital into a singular growth platform for Maharashtra.', icon: Cpu },
+      { title: 'Manufacturing Beyond the Metro', desc: 'Kolhapur, Satara, and Pimpri-Chinchwad deepen the state\'s industrial base with precision components, EV supply chains, and engineering exports.', icon: Factory },
+      { title: 'Agro-Industrial Resilience', desc: 'Sangli and Solapur blend irrigation, food processing, and logistics to stabilize the broader western growth corridor.', icon: Tractor },
+    ],
+  },
+  marathwada: {
+    tabId: 'marathwada',
+    tabLabel: 'Marathwada',
+    theme: themes.marathwada,
+    header: {
+      title: 'Marathwada Renewal Corridor',
+      subtitle: '(Manufacturing Catch-up & Water Resilience)',
+      desc: 'A forward-looking Marathwada dashboard emphasizing industrial catch-up, logistics upgrades, drought resilience, and faster educational convergence.',
+      icon: Sunrise,
+    },
+    metrics: [
+      { title: 'Region Population', value: '2.2 Crore', subtext: 'Fast-modernizing interior belt', icon: Users, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
+      { title: 'Regional Economy', value: '$235 Billion', subtext: 'Industrial diversification underway', icon: CircleDollarSign, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' },
+      { title: 'Region Area', value: '64,600 sq km', subtext: 'Large inland districts and trade routes', icon: Map, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+      { title: 'Avg. Density', value: '341 / sq km', subtext: 'Lower density, higher land potential', icon: Activity, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
+      { title: 'Literacy Rate', value: '84.1%', subtext: 'Steady human-capital gains', icon: BookOpen, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' },
+      { title: 'Urbanization', value: '43.7%', subtext: 'Growth led by industrial nodes', icon: Building, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+    ],
+    districts: [
+      { name: 'Chh. Sambhajinagar (Industry)', pop: '5.1M', area: '10,107', density: '505', edu: '87.2%', urban: '56.4%', growth: '9.6%', gdp: '63', services: 34, industry: 45, agri: 21, hindu: 69, muslim: 23, other: 8 },
+      { name: 'Jalna (Manufacturing)', pop: '2.7M', area: '7,718', density: '350', edu: '82.4%', urban: '34.7%', growth: '8.8%', gdp: '24', services: 24, industry: 44, agri: 32, hindu: 72, muslim: 20, other: 8 },
+      { name: 'Latur (Education/Trade)', pop: '3.2M', area: '7,157', density: '447', edu: '85.7%', urban: '39.6%', growth: '8.1%', gdp: '28', services: 29, industry: 31, agri: 40, hindu: 74, muslim: 18, other: 8 },
+      { name: 'Nanded (Health Corridor)', pop: '4.1M', area: '10,502', density: '390', edu: '83.6%', urban: '37.9%', growth: '7.5%', gdp: '30', services: 31, industry: 24, agri: 45, hindu: 70, muslim: 22, other: 8 },
+      { name: 'Beed (Water Transition)', pop: '3.5M', area: '10,693', density: '327', edu: '79.8%', urban: '28.5%', growth: '6.9%', gdp: '19', services: 20, industry: 23, agri: 57, hindu: 76, muslim: 17, other: 7 },
+      { name: 'Parbhani-Hingoli (Agri Grid)', pop: '3.0M', area: '9,300', density: '323', edu: '80.5%', urban: '26.2%', growth: '6.4%', gdp: '17', services: 19, industry: 21, agri: 60, hindu: 73, muslim: 20, other: 7 },
+    ],
+    insights: [
+      { title: 'The Industrial Catch-up Zone', desc: 'Chhatrapati Sambhajinagar and Jalna emerge as the leading production nodes for engineering goods, warehousing, and mid-scale manufacturing.', icon: Building2 },
+      { title: 'Water Security as Economic Policy', desc: 'Reservoir modernization, micro-irrigation, and reuse systems are treated as core growth infrastructure rather than only rural welfare inputs.', icon: Sun },
+      { title: 'Education-Led Convergence', desc: 'Latur and Nanded strengthen the regional talent base, allowing Marathwada to retain more skilled youth inside the state economy.', icon: BookOpen },
+    ],
+  },
+  vidarbha: {
+    tabId: 'vidarbha',
+    tabLabel: 'Vidarbha',
+    theme: themes.vidarbha,
+    header: {
+      title: 'Vidarbha Resource Belt',
+      subtitle: '(Logistics, Energy & Mineral Value Chains)',
+      desc: 'The eastern growth frontier of Maharashtra, where Nagpur\'s logistics position, Chandrapur\'s energy base, and broad agricultural hinterlands create a different growth profile from the coast and western plateau.',
+      icon: Zap,
+    },
+    metrics: [
+      { title: 'Region Population', value: '2.9 Crore', subtext: 'Large land base with major nodes', icon: Users, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+      { title: 'Regional Economy', value: '$320 Billion', subtext: 'Energy, logistics and processing led', icon: CircleDollarSign, color: 'text-lime-400', bg: 'bg-lime-500/10 border-lime-500/20' },
+      { title: 'Region Area', value: '97,700 sq km', subtext: 'State\'s broad eastern expanse', icon: Map, color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' },
+      { title: 'Avg. Density', value: '297 / sq km', subtext: 'Low density with high corridor potential', icon: Activity, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+      { title: 'Literacy Rate', value: '86.3%', subtext: 'Improving technical institutions', icon: BookOpen, color: 'text-lime-400', bg: 'bg-lime-500/10 border-lime-500/20' },
+      { title: 'Urbanization', value: '47.1%', subtext: 'Nagpur-led urban network', icon: Building, color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' },
+    ],
+    districts: [
+      { name: 'Nagpur (Logistics Capital)', pop: '6.8M', area: '9,892', density: '688', edu: '90.8%', urban: '68.9%', growth: '10.4%', gdp: '98', services: 44, industry: 37, agri: 19, hindu: 72, muslim: 15, other: 13 },
+      { name: 'Amravati (Education/Trade)', pop: '4.1M', area: '12,235', density: '335', edu: '87.1%', urban: '41.3%', growth: '7.2%', gdp: '31', services: 29, industry: 24, agri: 47, hindu: 78, muslim: 12, other: 10 },
+      { name: 'Chandrapur (Energy Hub)', pop: '3.5M', area: '11,443', density: '306', edu: '84.9%', urban: '38.7%', growth: '7.8%', gdp: '39', services: 20, industry: 53, agri: 27, hindu: 80, muslim: 9, other: 11 },
+      { name: 'Wardha (Agri-Processing)', pop: '2.0M', area: '6,309', density: '317', edu: '86.5%', urban: '29.1%', growth: '6.4%', gdp: '15', services: 19, industry: 26, agri: 55, hindu: 82, muslim: 8, other: 10 },
+      { name: 'Yavatmal (Fiber & Farm)', pop: '3.3M', area: '13,582', density: '243', edu: '82.7%', urban: '25.4%', growth: '5.9%', gdp: '18', services: 16, industry: 18, agri: 66, hindu: 79, muslim: 10, other: 11 },
+      { name: 'Bhandara-Gondia (Processing Belt)', pop: '2.6M', area: '10,200', density: '255', edu: '85.6%', urban: '28.8%', growth: '6.6%', gdp: '20', services: 18, industry: 29, agri: 53, hindu: 76, muslim: 9, other: 15 },
+    ],
+    insights: [
+      { title: 'Nagpur as the Inland Pivot', desc: 'Nagpur leverages its central geography and multimodal links to function as Maharashtra\'s inland logistics and warehousing command center.', icon: Train },
+      { title: 'Energy and Mineral Upgrading', desc: 'Chandrapur and nearby districts are repositioned from raw extraction toward cleaner power, advanced materials, and downstream processing.', icon: Shield },
+      { title: 'Agro-Processing at Scale', desc: 'Vidarbha\'s land base supports cotton, food processing, storage, and farm-tech deployment, especially when linked to higher-value logistics corridors.', icon: Mountain },
+    ],
+  },
 }
 
-const MetricCard = ({ title, value, subtext, icon: Icon, color, bg }) => <div className={`rounded-2xl border p-6 shadow-lg backdrop-blur-sm transition-all duration-500 hover:shadow-2xl ${bg}`}><div className="flex items-start justify-between"><div><p className="mb-1 text-sm font-medium text-slate-300">{title}</p><h3 className="text-2xl font-bold text-white">{value}</h3><p className="mt-2 text-xs text-slate-400">{subtext}</p></div><div className="rounded-xl bg-slate-900/50 p-3"><Icon className={`h-6 w-6 ${color}`} /></div></div></div>
-const InsightCard = ({ title, desc, icon: Icon, theme }) => <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/10 p-6 shadow-[0_16px_50px_rgba(15,23,42,0.22)] backdrop-blur-xl transition-all duration-500 hover:bg-white/14"><div className={`shrink-0 rounded-xl border p-3 shadow-inner ${theme.bgPrimarySubtle} ${theme.textPrimary} ${theme.borderPrimaryStrong}`}><Icon className="h-6 w-6" /></div><div><h4 className="mb-2 font-semibold text-slate-50">{title}</h4><p className="text-sm leading-relaxed text-slate-300">{desc}</p></div></div>
-const CompositionBar = ({ district, services, industry, agri }) => <div className="mb-6 rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md"><div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white"><Map className="h-4 w-4 text-slate-400" />{district}</div><div className="mb-4 flex h-3 w-full overflow-hidden rounded-full border border-slate-700/50 bg-slate-950/80 shadow-inner"><div className="h-full bg-gradient-to-r from-sky-500 to-cyan-400" style={{ width: `${services}%` }}></div><div className="h-full bg-gradient-to-r from-amber-500 to-orange-400" style={{ width: `${industry}%` }}></div><div className="h-full bg-gradient-to-r from-emerald-500 to-lime-400" style={{ width: `${agri}%` }}></div></div><div className="grid grid-cols-3 gap-2 rounded-lg border border-white/8 bg-slate-950/35 p-2.5 text-[11px] font-bold uppercase tracking-wider md:text-xs"><div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-cyan-400"></div><span className="text-slate-400">Services</span></div><span className="text-sm text-cyan-400">{services}%</span></div><div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400"></div><span className="text-slate-400">Industry</span></div><span className="text-sm text-orange-400">{industry}%</span></div><div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-lime-400"></div><span className="text-slate-400">Agri</span></div><span className="text-sm text-lime-400">{agri}%</span></div></div></div>
+const MetricCard = ({ title, value, subtext, icon: Icon, color, bg }) => (
+  <div className={`rounded-2xl border p-6 shadow-lg backdrop-blur-sm transition-all duration-500 hover:shadow-2xl ${bg}`}>
+    <div className="flex items-start justify-between">
+      <div>
+        <p className="mb-1 text-sm font-medium text-slate-300">{title}</p>
+        <h3 className="text-2xl font-bold text-white">{value}</h3>
+        <p className="mt-2 text-xs text-slate-400">{subtext}</p>
+      </div>
+      <div className="rounded-xl bg-slate-900/50 p-3">
+        <Icon className={`h-6 w-6 ${color}`} />
+      </div>
+    </div>
+  </div>
+)
+
+const InsightCard = ({ title, desc, icon: Icon, theme }) => (
+  <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/10 p-6 shadow-[0_16px_50px_rgba(15,23,42,0.22)] backdrop-blur-xl transition-all duration-500 hover:bg-white/14">
+    <div className={`shrink-0 rounded-xl border p-3 shadow-inner ${theme.bgPrimarySubtle} ${theme.textPrimary} ${theme.borderPrimaryStrong}`}>
+      <Icon className="h-6 w-6" />
+    </div>
+    <div>
+      <h4 className="mb-2 font-semibold text-slate-50">{title}</h4>
+      <p className="text-sm leading-relaxed text-slate-300">{desc}</p>
+    </div>
+  </div>
+)
+
+const ReligionBar = ({ district, hindu, muslim, other }) => (
+  <div className="rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
+    <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
+      <Map className="h-4 w-4 text-slate-400" />
+      {district}
+    </div>
+    <div className="mb-4 flex h-3 w-full overflow-hidden rounded-full border border-slate-700/50 bg-slate-950/80 shadow-inner">
+      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400" style={{ width: `${hindu}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400" style={{ width: `${muslim}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-400" style={{ width: `${other}%` }}></div>
+    </div>
+    <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/8 bg-slate-950/35 p-2.5 text-[11px] font-bold uppercase tracking-wider md:text-xs">
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400"></div><span className="text-slate-400">Hindu</span></div><span className="text-sm text-orange-400">{hindu}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-emerald-400"></div><span className="text-slate-400">Muslim</span></div><span className="text-sm text-emerald-400">{muslim}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-purple-400"></div><span className="text-slate-400">Other</span></div><span className="text-sm text-purple-400">{other}%</span></div>
+    </div>
+  </div>
+)
+
+const CompositionBar = ({ district, services, industry, agri }) => (
+  <div className="rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
+    <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
+      <Map className="h-4 w-4 text-slate-400" />
+      {district}
+    </div>
+    <div className="mb-4 flex h-3 w-full overflow-hidden rounded-full border border-slate-700/50 bg-slate-950/80 shadow-inner">
+      <div className="h-full bg-gradient-to-r from-sky-500 to-cyan-400" style={{ width: `${services}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400" style={{ width: `${industry}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-emerald-500 to-lime-400" style={{ width: `${agri}%` }}></div>
+    </div>
+    <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/8 bg-slate-950/35 p-2.5 text-[11px] font-bold uppercase tracking-wider md:text-xs">
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-cyan-400"></div><span className="text-slate-400">Services</span></div><span className="text-sm text-cyan-400">{services}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400"></div><span className="text-slate-400">Industry</span></div><span className="text-sm text-orange-400">{industry}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-lime-400"></div><span className="text-slate-400">Agri</span></div><span className="text-sm text-lime-400">{agri}%</span></div>
+    </div>
+  </div>
+)
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('konkan')
@@ -26,13 +231,126 @@ export default function App() {
 
   return (
     <div className={`relative min-h-screen overflow-hidden bg-gradient-to-br p-4 font-sans transition-colors duration-700 ease-in-out md:p-8 lg:p-12 ${data.theme.bgStart} ${data.theme.bgEnd}`}>
-      <div className="pointer-events-none absolute inset-0"><div className={`absolute -left-24 top-[-5rem] h-80 w-80 rounded-full blur-3xl ${data.theme.orbPrimary}`}></div><div className={`absolute bottom-[-6rem] right-[-4rem] h-96 w-96 rounded-full blur-3xl ${data.theme.orbSecondary}`}></div><div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.03)_28%,rgba(255,255,255,0.06)_62%,rgba(255,255,255,0.02)_100%)]"></div><div className="absolute inset-0 opacity-40 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:26px_26px]"></div></div>
+      <div className="pointer-events-none absolute inset-0">
+        <div className={`absolute -left-24 top-[-5rem] h-80 w-80 rounded-full blur-3xl ${data.theme.orbPrimary}`}></div>
+        <div className={`absolute bottom-[-6rem] right-[-4rem] h-96 w-96 rounded-full blur-3xl ${data.theme.orbSecondary}`}></div>
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.03)_28%,rgba(255,255,255,0.06)_62%,rgba(255,255,255,0.02)_100%)]"></div>
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:26px_26px]"></div>
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl space-y-10">
-        <div className="mb-8 flex justify-center"><div className="flex w-full flex-wrap justify-center gap-2 rounded-2xl border border-white/10 bg-white/10 p-2 shadow-[0_20px_60px_rgba(15,23,42,0.22)] backdrop-blur-xl md:w-auto md:rounded-full">{Object.keys(regionsData).map((key) => { const region = regionsData[key]; const isActive = activeTab === key; return <button key={key} onClick={() => setActiveTab(key)} className={`flex items-center gap-2 rounded-xl px-4 py-3 text-xs font-bold transition-all duration-300 md:rounded-full md:px-8 md:text-sm ${isActive ? `${region.theme.bgPrimarySubtle} ${region.theme.textPrimary} ${region.theme.borderPrimaryStrong} border ${region.theme.shadowPrimary}` : 'border border-transparent text-slate-400 hover:bg-slate-800/50 hover:text-white'}`}><region.header.icon className="h-4 w-4" /><span className="hidden sm:inline">{region.tabLabel}</span><span className="sm:hidden">{key.toUpperCase()}</span></button> })}</div></div>
-        <header className="space-y-4 text-center"><div className={`mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium shadow-[0_0_10px_currentColor] ${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimarySubtle}`}><HeaderIcon className="h-4 w-4" />Illustrative 2050 Maharashtra Projection</div><h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl"><span className={`bg-gradient-to-r bg-clip-text text-transparent ${data.theme.gradient}`}>{data.header.title}</span></h1><h2 className="text-xl font-medium text-slate-300 md:text-2xl">{data.header.subtitle}</h2><p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-400">{data.header.desc}</p></header>
-        <section><div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">{data.metrics.map((metric, idx) => <MetricCard key={idx} {...metric} />)}</div></section>
-        <section><div className="overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl"><div className="border-b border-white/10 bg-white/6 p-6"><h2 className="flex items-center gap-2 text-xl font-bold text-white"><Map className={`h-5 w-5 ${data.theme.textPrimary}`} />Primary District Telemetry (2050)</h2></div><div className="overflow-x-auto"><table className="w-full border-collapse whitespace-nowrap text-left"><thead><tr className="bg-slate-950/45 text-sm uppercase tracking-wider text-slate-300"><th className="p-4 pl-6 font-semibold">District Node</th><th className={`p-4 font-semibold ${data.theme.textSecondary}`}>Pop.</th><th className="p-4 font-semibold text-amber-400">GDP ($B)</th><th className="p-4 font-semibold">Area (km²)</th><th className="p-4 font-semibold">Density</th><th className="p-4 font-semibold">Lit. Rate</th><th className="p-4 font-semibold">Urban %</th><th className="p-4 font-semibold">Growth Trend</th></tr></thead><tbody className="divide-y divide-white/6">{data.districts.map((district, idx) => <tr key={idx} className="transition-colors duration-200 hover:bg-white/6"><td className="p-4 pl-6 font-medium text-white">{district.name}</td><td className={`p-4 font-bold ${data.theme.textSecondary}`}>{district.pop}</td><td className="p-4 font-medium text-amber-400/90">${district.gdp}B</td><td className="p-4 text-slate-300">{district.area}</td><td className="p-4 text-slate-300">{district.density}</td><td className="p-4"><span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${parseFloat(district.edu) > 85 ? `${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimaryStrong}` : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{district.edu}</span></td><td className="mt-0.5 flex items-center gap-1.5 p-4 text-slate-300"><Building className={`h-3.5 w-3.5 ${data.theme.textPrimary}`} /> {district.urban}</td><td className="p-4 text-slate-300"><span className={`flex items-center gap-1 ${parseFloat(district.growth) < 10 && parseFloat(district.growth) > 0 ? 'text-amber-400' : parseFloat(district.growth) < 0 ? 'text-indigo-400' : 'text-emerald-400'}`}><TrendingUp className={`h-3.5 w-3.5 ${parseFloat(district.growth) < 0 ? 'rotate-180' : ''}`} />+{district.growth}</span></td></tr>)}</tbody></table></div></div></section>
-        <div className="grid grid-cols-1 gap-6 xl:grid-cols-3"><section className="xl:col-span-2"><div className="h-full rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8"><h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white"><PieChart className="h-6 w-6 text-amber-400" />Economic Composition (2050)</h2><div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2"><div className="space-y-4">{data.districts.slice(0, 3).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div><div className="space-y-4">{data.districts.slice(3, 6).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div></div></div></section><section className="space-y-4 xl:col-span-1"><h2 className="mb-2 flex items-center gap-2 px-2 text-xl font-bold text-white"><Activity className={`h-5 w-5 ${data.theme.textPrimary}`} />Regional Architecture</h2>{data.insights.map((insight, idx) => <InsightCard key={idx} {...insight} theme={data.theme} />)}</section></div>
+        <div className="mb-8 flex justify-center">
+          <div className="flex w-full flex-wrap justify-center gap-2 rounded-2xl border border-white/10 bg-white/10 p-2 shadow-[0_20px_60px_rgba(15,23,42,0.22)] backdrop-blur-xl md:w-auto md:rounded-full">
+            {Object.keys(regionsData).map((key) => {
+              const region = regionsData[key]
+              const isActive = activeTab === key
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key)}
+                  className={`flex items-center gap-2 rounded-xl px-4 py-3 text-xs font-bold transition-all duration-300 md:rounded-full md:px-8 md:text-sm ${isActive ? `${region.theme.bgPrimarySubtle} ${region.theme.textPrimary} ${region.theme.borderPrimaryStrong} border ${region.theme.shadowPrimary}` : 'border border-transparent text-slate-400 hover:bg-slate-800/50 hover:text-white'}`}
+                >
+                  <region.header.icon className="h-4 w-4" />
+                  <span className="hidden sm:inline">{region.tabLabel}</span>
+                  <span className="sm:hidden">{key.toUpperCase()}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        <header className="space-y-4 text-center">
+          <div className={`mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium shadow-[0_0_10px_currentColor] ${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimarySubtle}`}>
+            <HeaderIcon className="h-4 w-4" />
+            Illustrative 2050 Maharashtra Projection
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
+            <span className={`bg-gradient-to-r bg-clip-text text-transparent ${data.theme.gradient}`}>{data.header.title}</span>
+          </h1>
+          <h2 className="text-xl font-medium text-slate-300 md:text-2xl">{data.header.subtitle}</h2>
+          <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-400">{data.header.desc}</p>
+        </header>
+
+        <section>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {data.metrics.map((metric, idx) => <MetricCard key={idx} {...metric} />)}
+          </div>
+        </section>
+
+        <section>
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl">
+            <div className="border-b border-white/10 bg-white/6 p-6">
+              <h2 className="flex items-center gap-2 text-xl font-bold text-white">
+                <Map className={`h-5 w-5 ${data.theme.textPrimary}`} />
+                Primary District Telemetry (2050)
+              </h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse whitespace-nowrap text-left">
+                <thead>
+                  <tr className="bg-slate-950/45 text-sm uppercase tracking-wider text-slate-300">
+                    <th className="p-4 pl-6 font-semibold">District Node</th>
+                    <th className={`p-4 font-semibold ${data.theme.textSecondary}`}>Pop.</th>
+                    <th className="p-4 font-semibold text-amber-400">GDP ($B)</th>
+                    <th className="p-4 font-semibold">Area (km²)</th>
+                    <th className="p-4 font-semibold">Density</th>
+                    <th className="p-4 font-semibold">Lit. Rate</th>
+                    <th className="p-4 font-semibold">Urban %</th>
+                    <th className="p-4 font-semibold">Growth Trend</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/6">
+                  {data.districts.map((district, idx) => (
+                    <tr key={idx} className="transition-colors duration-200 hover:bg-white/6">
+                      <td className="p-4 pl-6 font-medium text-white">{district.name}</td>
+                      <td className={`p-4 font-bold ${data.theme.textSecondary}`}>{district.pop}</td>
+                      <td className="p-4 font-medium text-amber-400/90">${district.gdp}B</td>
+                      <td className="p-4 text-slate-300">{district.area}</td>
+                      <td className="p-4 text-slate-300">{district.density}</td>
+                      <td className="p-4"><span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${parseFloat(district.edu) > 85 ? `${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimaryStrong}` : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{district.edu}</span></td>
+                      <td className="mt-0.5 flex items-center gap-1.5 p-4 text-slate-300"><Building className={`h-3.5 w-3.5 ${data.theme.textPrimary}`} /> {district.urban}</td>
+                      <td className="p-4 text-slate-300"><span className={`flex items-center gap-1 ${parseFloat(district.growth) < 10 && parseFloat(district.growth) > 0 ? 'text-amber-400' : parseFloat(district.growth) < 0 ? 'text-indigo-400' : 'text-emerald-400'}`}><TrendingUp className={`h-3.5 w-3.5 ${parseFloat(district.growth) < 0 ? 'rotate-180' : ''}`} />+{district.growth}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 gap-6 2xl:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
+            <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
+              <PieChart className="h-6 w-6 text-amber-400" />
+              Religion Profile (2050)
+            </h2>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <ReligionBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
+              <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <ReligionBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
+            <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
+              <PieChart className="h-6 w-6 text-cyan-400" />
+              Economic Composition (2050)
+            </h2>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
+              <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="mb-2 flex items-center gap-2 px-2 text-xl font-bold text-white">
+            <Activity className={`h-5 w-5 ${data.theme.textPrimary}`} />
+            Regional Architecture
+          </h2>
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
+            {data.insights.map((insight, idx) => <InsightCard key={idx} {...insight} theme={data.theme} />)}
+          </div>
+        </section>
       </div>
     </div>
   )
