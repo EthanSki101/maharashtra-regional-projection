@@ -186,40 +186,40 @@ const InsightCard = ({ title, desc, icon: Icon, theme }) => (
   </div>
 )
 
-const ReligionBar = ({ district, hindu, muslim, other }) => (
-  <div className="rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
+const DemographicBar = ({ district, hindu, muslim, other }) => (
+  <div className="mb-6 rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
     <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
       <Map className="h-4 w-4 text-slate-400" />
       {district}
     </div>
     <div className="mb-4 flex h-3 w-full overflow-hidden rounded-full border border-slate-700/50 bg-slate-950/80 shadow-inner">
-      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400" style={{ width: `${hindu}%` }}></div>
-      <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400" style={{ width: `${muslim}%` }}></div>
-      <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-400" style={{ width: `${other}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 transition-all duration-500 hover:brightness-125" style={{ width: `${hindu}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-500 hover:brightness-125" style={{ width: `${muslim}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-400 transition-all duration-500 hover:brightness-125" style={{ width: `${other}%` }}></div>
     </div>
     <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/8 bg-slate-950/35 p-2.5 text-[11px] font-bold uppercase tracking-wider md:text-xs">
-      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400"></div><span className="text-slate-400">Hindu</span></div><span className="text-sm text-orange-400">{hindu}%</span></div>
-      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-emerald-400"></div><span className="text-slate-400">Muslim</span></div><span className="text-sm text-emerald-400">{muslim}%</span></div>
-      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-purple-400"></div><span className="text-slate-400">Other</span></div><span className="text-sm text-purple-400">{other}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.6)]"></div><span className="text-slate-400">Hindu</span></div><span className="text-sm text-orange-400">{hindu}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div><span className="text-slate-400">Muslim</span></div><span className="text-sm text-emerald-400">{muslim}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]"></div><span className="text-slate-400">Other</span></div><span className="text-sm text-purple-400">{other}%</span></div>
     </div>
   </div>
 )
 
 const CompositionBar = ({ district, services, industry, agri }) => (
-  <div className="rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
+  <div className="mb-6 rounded-xl border border-white/10 bg-white/8 p-4 backdrop-blur-md">
     <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
       <Map className="h-4 w-4 text-slate-400" />
       {district}
     </div>
     <div className="mb-4 flex h-3 w-full overflow-hidden rounded-full border border-slate-700/50 bg-slate-950/80 shadow-inner">
-      <div className="h-full bg-gradient-to-r from-sky-500 to-cyan-400" style={{ width: `${services}%` }}></div>
-      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400" style={{ width: `${industry}%` }}></div>
-      <div className="h-full bg-gradient-to-r from-emerald-500 to-lime-400" style={{ width: `${agri}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-sky-500 to-cyan-400 transition-all duration-500 hover:brightness-125" style={{ width: `${services}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 transition-all duration-500 hover:brightness-125" style={{ width: `${industry}%` }}></div>
+      <div className="h-full bg-gradient-to-r from-emerald-500 to-lime-400 transition-all duration-500 hover:brightness-125" style={{ width: `${agri}%` }}></div>
     </div>
     <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/8 bg-slate-950/35 p-2.5 text-[11px] font-bold uppercase tracking-wider md:text-xs">
-      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-cyan-400"></div><span className="text-slate-400">Services</span></div><span className="text-sm text-cyan-400">{services}%</span></div>
-      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400"></div><span className="text-slate-400">Industry</span></div><span className="text-sm text-orange-400">{industry}%</span></div>
-      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-lime-400"></div><span className="text-slate-400">Agri</span></div><span className="text-sm text-lime-400">{agri}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]"></div><span className="text-slate-400">Services</span></div><span className="text-sm text-cyan-400">{services}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 border-r border-slate-700/50 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.6)]"></div><span className="text-slate-400">Industry</span></div><span className="text-sm text-orange-400">{industry}%</span></div>
+      <div className="flex flex-col items-center justify-center gap-1 text-center"><div className="mb-0.5 flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,53,0.6)]"></div><span className="text-slate-400">Agri</span></div><span className="text-sm text-lime-400">{agri}%</span></div>
     </div>
   </div>
 )
@@ -262,7 +262,7 @@ export default function App() {
         <header className="space-y-4 text-center">
           <div className={`mb-2 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium shadow-[0_0_10px_currentColor] ${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimarySubtle}`}>
             <HeaderIcon className="h-4 w-4" />
-            Illustrative 2050 Maharashtra Projection
+            2050 Regional Economic Zones
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
             <span className={`bg-gradient-to-r bg-clip-text text-transparent ${data.theme.gradient}`}>{data.header.title}</span>
@@ -309,7 +309,7 @@ export default function App() {
                       <td className="p-4 text-slate-300">{district.density}</td>
                       <td className="p-4"><span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${parseFloat(district.edu) > 85 ? `${data.theme.bgPrimarySubtle} ${data.theme.textPrimary} ${data.theme.borderPrimaryStrong}` : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{district.edu}</span></td>
                       <td className="mt-0.5 flex items-center gap-1.5 p-4 text-slate-300"><Building className={`h-3.5 w-3.5 ${data.theme.textPrimary}`} /> {district.urban}</td>
-                      <td className="p-4 text-slate-300"><span className={`flex items-center gap-1 ${parseFloat(district.growth) < 10 && parseFloat(district.growth) > 0 ? 'text-amber-400' : parseFloat(district.growth) < 0 ? 'text-indigo-400' : 'text-emerald-400'}`}><TrendingUp className={`h-3.5 w-3.5 ${parseFloat(district.growth) < 0 ? 'rotate-180' : ''}`} />+{district.growth}</span></td>
+                      <td className="p-4 text-slate-300"><span className={`flex items-center gap-1 ${parseFloat(district.growth) < 10 && parseFloat(district.growth) > 0 ? 'text-amber-400' : parseFloat(district.growth) < 0 ? 'text-indigo-400' : 'text-emerald-400'}`}><TrendingUp className={`h-3.5 w-3.5 ${parseFloat(district.growth) < 0 ? 'rotate-180' : ''}`} />{parseFloat(district.growth) > 0 ? '+' : ''}{district.growth}</span></td>
                     </tr>
                   ))}
                 </tbody>
@@ -318,39 +318,39 @@ export default function App() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 gap-6 2xl:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
-            <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
-              <PieChart className="h-6 w-6 text-amber-400" />
-              Religion Profile (2050)
-            </h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <ReligionBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
-              <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <ReligionBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+          <section className="space-y-6 xl:col-span-2">
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
+              <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
+                <PieChart className="h-6 w-6 text-amber-400" />
+                Demographic Equilibrium (2050)
+              </h2>
+              <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2">
+                <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <DemographicBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
+                <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <DemographicBar key={d.name} district={d.name} hindu={d.hindu} muslim={d.muslim} other={d.other} />)}</div>
+              </div>
             </div>
-          </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
-            <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
-              <PieChart className="h-6 w-6 text-cyan-400" />
-              Economic Composition (2050)
-            </h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
-              <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-[0_24px_70px_rgba(15,23,42,0.24)] backdrop-blur-xl lg:p-8">
+              <h2 className="mb-8 flex items-center gap-2 text-xl font-bold text-white">
+                <PieChart className="h-6 w-6 text-cyan-400" />
+                Economic Composition (2050)
+              </h2>
+              <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2">
+                <div className="space-y-4">{data.districts.slice(0, 3).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
+                <div className="space-y-4">{data.districts.slice(3, 6).map((d) => <CompositionBar key={d.name} district={d.name} services={d.services} industry={d.industry} agri={d.agri} />)}</div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="space-y-4">
-          <h2 className="mb-2 flex items-center gap-2 px-2 text-xl font-bold text-white">
-            <Activity className={`h-5 w-5 ${data.theme.textPrimary}`} />
-            Regional Architecture
-          </h2>
-          <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
+          <section className="space-y-4 xl:col-span-1">
+            <h2 className="mb-2 flex items-center gap-2 px-2 text-xl font-bold text-white">
+              <Activity className={`h-5 w-5 ${data.theme.textPrimary}`} />
+              Regional Architecture
+            </h2>
             {data.insights.map((insight, idx) => <InsightCard key={idx} {...insight} theme={data.theme} />)}
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
   )
